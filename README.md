@@ -254,6 +254,9 @@ print(obj.instance_method())  # Output: Called instance_method on <Example objec
 # Вызов статического метода
 print(Example.static_method())  # Output: Called static_method
 
+
 # Вызов метода класса
 print(Example.class_method())  # Output: Called class_method on <class 'Example'>, class_variable: class-level
 ```
+
+<hr1>
