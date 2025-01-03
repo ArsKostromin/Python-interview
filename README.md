@@ -2,7 +2,8 @@
 
 Архитектура MVT (Model-View-Template) используется в Django, как реализация подхода, похожего на MVC (Model-View-Controller). Django адаптирует эту архитектуру под свои особенности, упрощая создание веб-приложений. Давайте разберем, что означает каждая часть MVT:
 
-1. Model (Модель)
+<title>1. Model (Модель))</title>
+
 Модель отвечает за работу с данными:
 
 определение структуры данных,
@@ -30,7 +31,8 @@ from django.db import models
 Работа с запросами:
 Book.objects.all(), Book.objects.filter(title='Django').
 
-2. View (Представление)
+<title>2. View (Представление)</title>
+
 Представление обрабатывает бизнес-логику и решает, какой ответ отправить пользователю:
 
 принимает HTTP-запросы,
@@ -55,7 +57,8 @@ from .models import Book
 Взаимодействие с моделями для получения данных.
 Определение логики ответа.
 Передача данных в шаблоны для рендеринга.
-3. Template (Шаблон)
+<title>3. Template (Шаблон)</title>
+
 Шаблоны в Django используются для формирования HTML-страниц на основе переданных данных. Это слой представления, отвечающий за отображение информации пользователю.
 
 Шаблоны поддерживают:
@@ -67,20 +70,20 @@ from .models import Book
 
 html
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Books</title>
-</head>
-<body>
-    <h1>Books</h1>
-    <ul>
-        {% for book in books %}
-            <li>{{ book.title }} by {{ book.author }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Books</title>
+    </head>
+    <body>
+        <h1>Books</h1>
+        <ul>
+            {% for book in books %}
+                <li>{{ book.title }} by {{ book.author }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+    </html>
 
 Задачи шаблона:
 
