@@ -259,4 +259,21 @@ print(Example.static_method())  # Output: Called static_method
 print(Example.class_method())  # Output: Called class_method on <class 'Example'>, class_variable: class-level
 ```
 
-<hr1>
+<hr>
+
+<h1>Что такое кастомный менеджер модели и ModelManager?</h1>
+В Django менеджер модели предоставляет интерфейс для взаимодействия с базой данных. По умолчанию у каждой модели есть менеджер objects, который позволяет выполнять стандартные запросы, такие как .all(), .filter(), .get(), и т.д. Однако иногда требуется изменить поведение стандартного менеджера или добавить собственные методы — для этого используются кастомные менеджеры.
+
+ModelManager
+ModelManager — это базовый класс для создания кастомных менеджеров. Чтобы создать кастомный менеджер, нужно унаследоваться от этого класса и определить дополнительные методы.
+
+Пример:
+python
+
+    from django.db import models
+    class PublishedManager(models.Manager):
+        def get_queryset(self):
+            # Возвращает только опубликованные объекты
+            return super().get_queryset().filter(is_published=True)
+
+<hr>
