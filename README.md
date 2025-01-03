@@ -12,21 +12,24 @@
 
 Пример:
 python
-Копировать код
+
 from django.db import models
 
-class Book(models.Model):
-    title = models.CharField(max_length=255)
-    author = models.CharField(max_length=255)
-    published_date = models.DateField()
-    genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
+    class Book(models.Model):
+        title = models.CharField(max_length=255)
+        author = models.CharField(max_length=255)
+        published_date = models.DateField()
+        genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
+        def __str__(self):
+            return self.title
+        
 Задачи модели:
 
 Описание таблиц и их полей.
-Работа с запросами: Book.objects.all(), Book.objects.filter(title='Django').
+Работа с запросами:
+Book.objects.all(), Book.objects.filter(title='Django').
+
 2. View (Представление)
 Представление обрабатывает бизнес-логику и решает, какой ответ отправить пользователю:
 
@@ -39,13 +42,14 @@ python
 from django.shortcuts import render, get_object_or_404
 from .models import Book
 
-def book_list(request):
-    books = Book.objects.all()
-    return render(request, 'books/book_list.html', {'books': books})
-
-def book_detail(request, pk):
-    book = get_object_or_404(Book, pk=pk)
-    return render(request, 'books/book_detail.html', {'book': book})
+    def book_list(request):
+        books = Book.objects.all()
+        return render(request, 'books/book_list.html', {'books': books})
+    
+    def book_detail(request, pk):
+        book = get_object_or_404(Book, pk=pk)
+        return render(request, 'books/book_detail.html', {'book': book})
+    
 Задачи представления:
 
 Взаимодействие с моделями для получения данных.
@@ -60,8 +64,8 @@ def book_detail(request, pk):
 условные конструкции (if),
 фильтры ({{ title|lower }}) и теги ({% block content %}).
 Пример:
+
 html
-Копировать код
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,6 +81,7 @@ html
     </ul>
 </body>
 </html>
+
 Задачи шаблона:
 
 Формирование HTML-ответа на основе данных, переданных из представления.
@@ -115,3 +120,5 @@ ORM Django значительно ускоряет работу с базой д
 Расширяемость:
 
 Вы можете подключать сторонние приложения и библиотеки, не нарушая структуру проекта.
+
+<hr>
