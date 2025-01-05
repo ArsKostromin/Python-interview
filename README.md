@@ -458,9 +458,10 @@ python
             def speak(self):
                 return "I can make a sound"
 
-class Dog(Animal):
-    def speak(self):
-        return "Woof"
+        class Dog(Animal):
+            def speak(self):
+                return "Woof"
+        
 4. Полиморфизм
 Суть: Возможность объектов разных классов использовать один и тот же интерфейс.
 Зачем это нужно:
@@ -471,21 +472,21 @@ class Dog(Animal):
 Пример:
 python
 
-    class Animal:
-        def speak(self):
-            pass
-    
-    class Cat(Animal):
-        def speak(self):
-            return "Meow"
-    
-    class Dog(Animal):
-        def speak(self):
-            return "Woof"
-    
-    animals = [Cat(), Dog()]
-    for animal in animals:
-        print(animal.speak())  # Вывод: Meow, Woof
+        class Animal:
+            def speak(self):
+                pass
+        
+        class Cat(Animal):
+            def speak(self):
+                return "Meow"
+        
+        class Dog(Animal):
+            def speak(self):
+                return "Woof"
+        
+        animals = [Cat(), Dog()]
+        for animal in animals:
+            print(animal.speak())  # Вывод: Meow, Woof
 
 
 
